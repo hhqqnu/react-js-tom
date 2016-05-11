@@ -8,12 +8,14 @@ import Layout from './pages/Layout';
 import Archives from './pages/Archives';
 import Settings from './pages/Settings';
 import Featured from './pages/Featured';
+import Others from './pages/Others';
 ReactDom.render(
   <Router history={hashHistory}>
     <Route path="/" component={Layout}>
       <IndexRoute component={Featured}></IndexRoute>
       <Route path="archives(/:artive)" name="archives" component={Archives}></Route>
       <Route path="settings" name="settings" component={Settings}></Route>
+      <Route path="others" name="others" component={Others}></Route>
     </Route>
   </Router>
 ,root);

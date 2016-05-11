@@ -1,4 +1,15 @@
 import React from 'react';
+import ReactDom from 'react-dom';
+
+var CheckLink = React.createClass({
+  propTypes:{
+    children:React.PropTypes.element.isRequired
+  },
+  render:function(){
+    return <a {...this.props}>{'√ '}{this.props.children}</a>;
+  }
+});
+
 
 export default class Settings extends React.Component {
 
@@ -11,6 +22,21 @@ export default class Settings extends React.Component {
     const name = e.target.value;
     this.setState({name});
   }
+
+  handleClick(){
+    if(this.myTextInput.value=='') this.myTextInput.focus();
+    // ReactDom.findDOMNode(this.refs.myTextInput).focus();
+  }
+
+  componentDidMount(){
+    // this.refs.myTextInput.focus();
+    this.myTextInput.focus();
+    /* var tInput = this.refs.myTextInput.getDOMNode;
+    console.log(tInput); */
+    // React.findDOMNode(this.refs.myTextInput).focus();
+    // console.log(ReactDom.findDOMNode(this.refs.myTextInput));
+  }
+
 
   render(){
     return (
@@ -34,6 +60,18 @@ export default class Settings extends React.Component {
           <option value="B">Banana</option>
           <option value="C">Cranberry</option>
         </select>
+        <br/>
+        <CheckLink href="http://www.google.com.hk" target="_blank">
+          <span>click</span>
+        </CheckLink>
+        <br/>
+        <label for="myTextInput">focus input</label>
+        <input type="text" id="myTextInput" ref={(ref) => this.myTextInput = ref}/>
+        <input
+          type="button"
+          value="Focus the text input"
+          onClick={this.handleClick.bind(this)}
+        />
       </div>
     );
   }

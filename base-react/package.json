@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot"
+    "dev": "./node_modules/.bin/webpack-dev-server --host 0.0.0.0 --content-base src --inline --hot"
   },
   "author": "tom",
   "license": "ISC",
@@ -17,6 +17,9 @@
     "babel-preset-stage-0": "^6.5.0",
     "history": "^1.17.0",
     "react": "^15.0.2",
+    "react-addons-css-transition-group": "^15.0.2",
+    "react-addons-linked-state-mixin": "^15.0.2",
+    "react-addons-pure-render-mixin": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-router": "^2.4.0"
   },
